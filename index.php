@@ -19,7 +19,7 @@
       <div class="col-5 p-5 bg-white shadow-lg rounded">
         <h3>LOGIN</h3>
         <hr>
-        <form method="post" action="registro.php">
+        <form method="post" action="login.php">
           <div class="form-group">
             <label for="usuario">Usuario</label>
             <input id="usuario" class="form-control" type="text" name="usuario">
@@ -28,7 +28,8 @@
             <label for="password">Password</label>
             <input id="password" class="form-control" type="password" name="password">
           </div><br>
-          <button class="btn btn-primary" type="submit">Enviar</button>
+          <a href="registro.php" class="btn btn-secondary">Registrate</a>
+          <button class="btn btn-primary" name="login" type="submit">Entrar</button>
         </form>
       </div>
 
