@@ -28,7 +28,7 @@
             <label for="password">Password</label>
             <input id="password" class="form-control" type="password" name="password">
           </div><br>
-          <a href="registro.php" class="btn btn-secondary">Registrate</a>
+          <a href="new_users.php" class="btn btn-secondary">Registrate</a>
           <button class="btn btn-primary" name="login" type="submit">Entrar</button>
         </form>
       </div>

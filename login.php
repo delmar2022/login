@@ -13,7 +13,7 @@ $result = $query->fetch(PDO::FETCH_ASSOC);
 if (!$result) {
     echo '¡La combinación de nombre de usuario y contraseña es incorrecta!';
 } else {
-    if (password_verify($password, $result['PASSWORD'])) {
+    if (password_verify($password, $result['password'])) {
         echo '¡Felicitaciones, estás registrado!';
     } else {
         echo '¡La combinación de nombre de usuario y contraseña es incorrecta!';
