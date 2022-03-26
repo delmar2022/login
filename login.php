@@ -12,13 +12,13 @@ if (isset($_POST['login'])) {
     $result = $query->fetch(PDO::FETCH_ASSOC);
 
     if (!$result) {
-        echo '<p>¡La combinación de nombre de usuario y contraseña es incorrecta! x</p>';
+        header("location: index.php");
     } else {
         if (password_verify($password, $result['password'])) {
             $_SESSION['user_id'] = $result['id'];
-            echo '<p>¡Felicitaciones, estás registrado!</p>';
+            header("location: principal.php");
         } else {
-            echo '<p>¡La combinación de nombre de usuario y contraseña es incorrecta! y</p>';
+            header("location: index.php");
         }
     }
 }
