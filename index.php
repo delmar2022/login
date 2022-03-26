@@ -22,7 +22,7 @@
         <form method="post" action="login.php">
           <div class="form-group">
             <label for="usuario">Usuario</label>
-            <input id="usuario" class="form-control" type="text" name="usuario">
+            <input id="usuario" class="form-control" type="text" name="usuario" required>
           </div>
           <div class="form-group">
             <label for="password">Password</label>

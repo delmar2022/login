@@ -1,21 +1,22 @@
 <?php
 include('config.php');
 session_start();
+if (isset($_POST['login'])) {
+    $username = $_POST['usuario'];
+    $password = $_POST['password'];
 
-$username = $_POST['usuario'];
-$password = $_POST['password'];
+    $query = $conn->prepare("SELECT * FROM usuarios WHERE username = :username");
+    $query->bindParam("username", $username, PDO::PARAM_STR);
+    $query->execute();
 
-$query = $conn->prepare("SELECT * FROM usuarios WHERE username = :username");
-$query->bindParam("username", $username, PDO::PARAM_STR);
-$query->execute();
-
-$result = $query->fetch(PDO::FETCH_ASSOC);
-if (!$result) {
-    echo '¡La combinación de nombre de usuario y contraseña es incorrecta!';
-} else {
-    if (password_verify($password, $result['password'])) {
-        echo '¡Felicitaciones, estás registrado!';
+    $result = $query->fetch(PDO::FETCH_ASSOC);
+    if (!$result) {
+        echo '¡La combinación de nombre de usuario y contraseña es incorrecta! x';
     } else {
-        echo '¡La combinación de nombre de usuario y contraseña es incorrecta!';
+        if (password_verify($password, $result['password'])) {
+            echo '¡Felicitaciones, estás registrado!';
+        } else {
+            echo '¡La combinación de nombre de usuario y contraseña es incorrecta! y';
+        }
     }
 }
