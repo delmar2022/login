@@ -23,6 +23,9 @@
           </ul>
         </li>
         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="admin_users.php">Usuarios</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="php_cerrar.php">Salir</a>
         </li>
 
