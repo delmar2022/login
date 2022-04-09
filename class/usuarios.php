@@ -21,7 +21,7 @@ class crud
                     <a href="edit_users.php?edit_id=<?php echo $row['id'] ?>"> Editar</a>
                 </td>
                 <td>
-                    <a href="delete_users.php?delete_id=<?php echo $row['id'] ?>"><i class="fa fa-trash" aria-hidden="true"></i> Eliminar</a>
+                    <a href="eliminar_users.php?delete_id=<?php echo $row['id'] ?>"><i class="fa fa-trash" aria-hidden="true"></i> Eliminar</a>
                 </td>
             </tr>
 
@@ -51,5 +51,12 @@ class crud
         $stmt->execute(array(":id" => $id));
         $editRow = $stmt->fetch(PDO::FETCH_ASSOC);
         return $editRow;
+    }
+    public function delete($id)
+    {
+        $stmt = $this->db->prepare("DELETE FROM usuarios WHERE id=:id");
+        $stmt->bindparam(":id", $id);
+        $stmt->execute();
+        return true;
     }
 }
