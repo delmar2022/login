@@ -4,8 +4,9 @@ include_once 'class/usuarios.php';
 if (isset($_GET['delete_id'])) {
     $id = $_GET['delete_id'];
     $crud = new crud($conn);
-    header("Location:eliminar_users.php");
+    // header("Location:eliminar_users.php");
 }
+echo $id;
 ?>
 <!doctype html>
 <html lang="en">
@@ -48,6 +49,25 @@ if (isset($_GET['delete_id'])) {
         <?php
         }
         ?>
+    </div>
+    <div class="container">
+        <p>
+            <?php
+            if (isset($_GET['delete_id'])) {
+            ?>
+        <form method="post">
+            <input type="hidden" name="id" value="<?php echo $row['id']; ?>" />
+            <button class="btn btn-large btn-primary" type="submit" name="btn-del"><i class="glyphicon glyphicon-trash"></i> &nbsp; YES</button>
+            <a href="admin_users.php" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i> &nbsp; NO</a>
+        </form>
+    <?php
+            } else {
+    ?>
+        <a href="admin_users.php" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i>REGRESAR</a>
+    <?php
+            }
+    ?>
+    </p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

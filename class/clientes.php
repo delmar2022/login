@@ -18,10 +18,10 @@ class crud
                 <td><?php echo $row['username']; ?></td>
                 <td><?php echo $row['email']; ?></td>
                 <td>
-                    <a class="btn btn-large btn-success" href="edit_users.php?edit_id=<?php echo $row['id'] ?>"> Editar</a>
+                    <a href="edit_users.php?edit_id=<?php echo $row['id'] ?>"> Editar</a>
                 </td>
                 <td>
-                    <a class="btn btn-large btn-danger" href="eliminar_users.php?delete_id=<?php echo $row['id'] ?>"><i class="fa fa-trash" aria-hidden="true"></i> Eliminar</a>
+                    <a href="eliminar_users.php?delete_id=<?php echo $row['id'] ?>"><i class="fa fa-trash" aria-hidden="true"></i> Eliminar</a>
                 </td>
             </tr>
 
