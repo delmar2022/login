@@ -27,10 +27,10 @@ if (!isset($_SESSION['user_id'])) {
             <div class="col-6 p-5 bg-white shadow-lg rounded">
                 <h3>Nuevo Cliente</h3>
                 <hr>
-                <form method="post" action="">
+                <form method="post" action="registro_clientes.php">
                     <div class="form-group">
-                        <label for="usuario">Nombre:</label>
-                        <input id="usuario" class="form-control" type="text" name="usuario">
+                        <label for="nombre">Nombre:</label>
+                        <input id="nombre" class="form-control" type="text" name="nombre">
                     </div>
                     <div class="form-group">
                         <label for="direccion">Direccion:</label>

@@ -14,9 +14,11 @@ class crud
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 ?>
             <tr>
-                <td><?php echo $row['id']; ?></td>
-                <td><?php echo $row['username']; ?></td>
-                <td><?php echo $row['email']; ?></td>
+                <td><?php echo $row['id_cliente']; ?></td>
+                <td><?php echo $row['nombre']; ?></td>
+                <td><?php echo $row['direccion']; ?></td>
+                <td><?php echo $row['telefono']; ?></td>
+                <td><?php echo $row['dui']; ?></td>
                 <td>
                     <a href="edit_users.php?edit_id=<?php echo $row['id'] ?>"> Editar</a>
                 </td>
