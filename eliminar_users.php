@@ -1,12 +1,6 @@
 <?php
 include_once 'config.php';
 include_once 'class/usuarios.php';
-if (isset($_GET['delete_id'])) {
-    $id = $_GET['delete_id'];
-    $crud = new crud($conn);
-    // header("Location:eliminar_users.php");
-}
-echo $id;
 ?>
 <!doctype html>
 <html lang="en">
