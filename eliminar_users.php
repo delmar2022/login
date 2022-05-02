@@ -1,6 +1,13 @@
 <?php
 include_once 'config.php';
 include_once 'class/usuarios.php';
+$crud = new crud($conn);
+if (isset($_POST['btn-del'])) {
+    $id = $_GET['delete_id'];
+    $crud->delete($id);
+    header("Location:eliminar_users.php?alerta");
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -17,6 +24,21 @@ include_once 'class/usuarios.php';
 
 <body>
     <div class="container"><br>
+        <?php
+        if (isset($_GET['alerta'])) {
+        ?>
+            <div class="alert alert-success">
+                <strong>Hecho!</strong> Usuario Eliminado Correcctamente!
+            </div>
+        <?php
+        } else {
+        ?>
+            <div class="alert alert-danger">
+                <strong>Alerta!</strong> Esta Seguro que requiere Eliminar el Ususario
+            </div>
+        <?php
+        }
+        ?>
         <?php
         if (isset($_GET['delete_id'])) {
         ?>
@@ -49,15 +71,15 @@ include_once 'class/usuarios.php';
             <?php
             if (isset($_GET['delete_id'])) {
             ?>
-        <form method="post">
+        <form method="POST">
             <input type="hidden" name="id" value="<?php echo $row['id']; ?>" />
-            <button class="btn btn-large btn-primary" type="submit" name="btn-del"><i class="glyphicon glyphicon-trash"></i> &nbsp; YES</button>
-            <a href="admin_users.php" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i> &nbsp; NO</a>
+            <button class="btn btn-large btn-primary" type="submit" name="btn-del"><i class="glyphicon glyphicon-trash"></i> Yes</button>
+            <a href="admin_users.php" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i> No</a>
         </form>
     <?php
             } else {
     ?>
-        <a href="admin_users.php" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i>REGRESAR</a>
+        <a href="admin_users.php" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i>Regresar</a>
     <?php
             }
     ?>
