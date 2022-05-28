@@ -44,29 +44,8 @@
         </div>
     </div>
     <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="js_ajax/usuarios.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function() {
-
-        });
-        $('#guardar_usuario').submit(function(event) {
-            $('#regitro').attr("disabled", true)
-            var parametros = $(this).serialize();
-            $.ajax({
-                type: "POST",
-                URL: "registro.php",
-                data: parametros,
-                beforeSend: function(objeto) {
-                    $("#resultados_ajax").html('<img src="img/cargando.gif" width="300px" height="200px">');
-                },
-                success: function(datos) {
-                    $('#regitro').attr("disabled", false)
-                    $("#guardar_usuario")[0].reset();
-                    $("usuario").focus();
-                }
-            })
-        });
-    </script>
 </body>
 
 </html>
