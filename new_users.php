@@ -8,6 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link type="txt/css" href="js/jquery-ui.css" rel="stylesheet" />
     <?php require_once "navbar.php" ?>
     <title>USUARIOS</title>
 </head>
@@ -19,7 +20,7 @@
             <div class="col-6 p-5 bg-white shadow-lg rounded">
                 <h3>Nuevo Usuario</h3>
                 <hr>
-                <form method="post" action="registro.php">
+                <form method="post" id="guardar_usuario" name="gurdar_usuario" action="#">
                     <div class="form-group">
                         <label for="usuario">Nombre del Usuario</label>
                         <input id="usuario" class="form-control" type="text" name="usuario">
@@ -32,16 +33,40 @@
                         <label for="password">Password</label>
                         <input id="password" class="form-control" type="password" name="password">
                     </div><br>
-                    <button class="btn btn-primary" name="registro" type="submit">Guardar</button>
+                    <button class="btn btn-primary" id="registro" name="registro" type="submit">Guardar</button>
+                    <div id="resultado_ajax"></div>
+
+
                 </form>
             </div>
 
 
         </div>
     </div>
-
-
+    <script src="js/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+
+        });
+        $('#guardar_usuario').submit(function(event) {
+            $('#regitro').attr("disabled", true)
+            var parametros = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                URL: "registro.php",
+                data: parametros,
+                beforeSend: function(objeto) {
+                    $("#resultados_ajax").html('<img src="img/cargando.gif" width="300px" height="200px">');
+                },
+                success: function(datos) {
+                    $('#regitro').attr("disabled", false)
+                    $("#guardar_usuario")[0].reset();
+                    $("usuario").focus();
+                }
+            })
+        });
+    </script>
 </body>
 
 </html>
